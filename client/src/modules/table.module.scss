@@ -1,0 +1,23 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+
+  .table{
+    border: 1px solid black;
+    border-radius: 5px;
+
+    .table_data{
+      border: 1px solid black;
+      border-radius: 5px;
+      text-align: center;
+    }
+  }
+
+  .buttons_container{
+    display: flex;
+    gap: 10px;
+    width: fit-content;
+  }
+}
