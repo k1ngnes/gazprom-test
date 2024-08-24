@@ -16,7 +16,7 @@ export const Table = () => {
   }, []);
 
   const handlePreviousPage = () => {
-    setPage((page > 0) ? page - 1 : 0);
+    setPage((page > 1) ? page - 1 : 1);
   }
 
   const handleNextPage = () => {
@@ -47,8 +47,8 @@ export const Table = () => {
         </tbody>
       </table>
       <div className={styles.buttons_container}>
-        <button onClick={handlePreviousPage}>Предыдущая страница</button>
-        <button onClick={handleNextPage}>Следующая страница</button>
+        <button className={styles.button} onClick={handlePreviousPage}>Предыдущая страница</button>
+        <button className={styles.button} onClick={handleNextPage}>Следующая страница</button>
       </div>
     </div>
   );
