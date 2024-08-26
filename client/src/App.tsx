@@ -1,4 +1,3 @@
-import styles from "./modules/app.module.scss";
 import {Table} from "./components/Table.tsx";
 
 function App() {

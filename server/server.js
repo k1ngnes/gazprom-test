@@ -3,7 +3,7 @@ const app = express();
 const utility = require("./get-csv-data");
 const cors = require("cors");
 const corsOptions = {
-  origin: "http://localhost:8085",
+  origin: "http://localhost:5173",
 };
 
 app.use(cors(corsOptions));

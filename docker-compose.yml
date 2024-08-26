@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  server:
+    container_name: gazprom_server
+    restart: unless-stopped
+    image: gazprom-server-prod:1.0.0
+    build:
+      context: server
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - 8080:8080
+    networks:
+      - shared-network
+  client:
+    container_name: gazprom_client
+    restart: unless-stopped
+    image: gazprom-client-prod:1.0.0
+    build:
+      context: client
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - 8085:5173
+    networks:
+      - shared-network
+    depends_on:
+      - server
+
+networks:
+  shared-network:
