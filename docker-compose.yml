@@ -27,6 +27,6 @@ services:
       - shared-network
     depends_on:
       - server
-
 networks:
   shared-network:
+

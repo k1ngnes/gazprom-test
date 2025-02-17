@@ -1,18 +1,23 @@
 const express = require("express");
 const app = express();
-const utility = require("./get-csv-data");
+const utility = require("./services/get-file-info.js");
 const cors = require("cors");
+const {getFileInfo} = require("./services/get-file-info");
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: ["http://localhost:5173", "client"],
 };
 
 app.use(cors(corsOptions));
 
-const data = utility.getCSVData();
+let data = undefined;
 
-app.get("/api", (req, res) => {
-  res.json({data: data});
-})
+function sendData(data) {
+  app.get("/api", (req, res) => {
+    res.send(data);
+  })
+}
+
+utility.getFileInfo(data, sendData);
 
 app.listen(8080, () => {
   console.log("Server running on port 8080");
