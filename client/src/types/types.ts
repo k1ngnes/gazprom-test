@@ -1,3 +1,5 @@
+import {store} from "../redux/store.ts";
+
 export type TTableData = {
     articleid: string,
     subarticleid: string,
@@ -28,3 +30,5 @@ export type TTableState = {
     error: boolean,
     errorMessage?: string
 }
+
+export type DispatchThunk = typeof store.dispatch

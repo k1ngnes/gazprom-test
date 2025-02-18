@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 import styles from "../modules/table.module.scss";
-import {TTableData, TTableState} from "../types/types.ts";
+import {DispatchThunk, TTableData, TTableState} from "../types/types.ts";
 import {fetchTable} from "../redux";
 import {useDispatch, useSelector} from "react-redux";
 
 export const Table = () => {
   const [page, setPage] = useState(1);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<DispatchThunk>()
   const { loading, table, error, errorMessage } = useSelector((state: TTableState) => state);
   const entireStore = useSelector(state => state);
 
   useEffect(() => {
     dispatch(fetchTable())
     console.log(loading, table, error, errorMessage);
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     console.log("Entire Redux store:", entireStore);

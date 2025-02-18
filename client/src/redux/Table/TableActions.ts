@@ -26,7 +26,7 @@ export const fetchError = (error: string) => {
 export const fetchTable = () => {
     return (dispatch: Dispatch) => {
         dispatch(fetchRequest());
-        axios.get("http://localhost:8080/api")
+        axios.get("/api")
             .then(res => {
                 const table = res.data
                 dispatch(fetchSuccess(table))
