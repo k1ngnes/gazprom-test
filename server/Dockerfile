@@ -1,4 +1,4 @@
-FROM node:22 as Production
+FROM node:22.4 as Production
 
 WORKDIR /usr/src/server
 
